@@ -17,6 +17,11 @@ void writeOpenTag(string,ofstream &);
 void writeCloseTag(string,ofstream &);
 
 int main(int argc, const char * argv[]) {
+    // Intro
+    cout << "Welcome to the FTL Weapon Creation Tool. Please note that\n";
+    cout << "all sounds must have the .ogg extension and all images \n";
+    cout << "must have the .png extension. If any of your resources\n";
+    cout << "are not in these formats, please convert them now." << endl;
     // Variable initialization
     string path = "";
     string pwd = "";
@@ -37,6 +42,9 @@ int main(int argc, const char * argv[]) {
     system(command.c_str());
     command = "mkdir \"" + path + "/audio\"";
     system(command.c_str());
+    command = "mkdir \"" + path + "/audio/waves/weapons\"";
+    system(command.c_str());
+    command = "mkdir \"" + path + "/img/weapons\"";
     
     // Get the weapon name
     cout << "Weapon name: ";
@@ -72,12 +80,16 @@ int main(int argc, const char * argv[]) {
             break;
     }
     
+    // Get garbage newline character that is stuck in cin stream
+    
+    cin.get();
+    
     // CD to data directory and open blueprints.xml.append in append mode, creating it if it doesn't exist
     pwd = path + "/data";
     command = "cd \"" + pwd + "\"";
-    path = pwd + "/blueprints.xml.append";
+    string newpath = pwd + "/blueprints.xml.append";
     system(command.c_str());
-    ofstream out(path,ios::app);
+    ofstream out(newpath,ios::app);
     
     /////////////////////////////
     // BEGIN BLUEPRINT WRITING //
@@ -90,55 +102,130 @@ int main(int argc, const char * argv[]) {
     writeOpenTag(tag,out);
     // Create weapon type tag
     tag = "type";
+    out << "    ";
     writeTag(tag, weaponType, out);
     // Create weapon title tag
     tag = "title";
+    out << "    ";
     writeTag(tag, weaponName, out);
     // Create short name tag
     tag = "short";
+    out << "    ";
     writeTag(tag,shortName, out);
     // Ask for description and write tag to file
     cout << "Descripton: ";
+    out << "    ";
     string desc;
     getline(cin, desc);
     tag = "desc";
     writeTag(tag,desc,out);
     // Ask for tooltip and write tag to file
     cout << "Tooltip: ";
+    out << "    ";
     string tooltip;
     getline(cin, tooltip);
     tag = "tooltip";
     writeTag(tag,tooltip,out);
     // Ask for damage value and write tag to file
     cout << "Damage: ";
+    out << "    ";
     string damage;
     tag = "damage";
     getline(cin,damage);
     writeTag(tag,damage,out);
     // Ask for shield piercing value and write tag to file
     cout << "Shield piercing: ";
+    out << "    ";
     string sp;
     getline(cin,sp);
     tag = "sp";
     writeTag(tag,sp,out);
     // Ask for fire chance and write tag to file
-    cout << "Fire chance: ";
+    cout << "Fire chance (1-10): ";
+    out << "    ";
     string fireChance;
     tag = "fireChance";
     getline(cin,fireChance);
     writeTag(tag,fireChance,out);
     // Ask for cooldown and write tag to file
     cout << "Charge time: ";
+    out << "    ";
     string cooldown;
     getline(cin,cooldown);
     tag = "cooldown";
     writeTag(tag,cooldown,out);
     // Ask for power requirement and write tag to file
     cout << "Power requirement: ";
+    out << "    ";
     string power;
     tag = "power";
     getline(cin,power);
     writeTag(tag,power,out);
+    // Ask for cost of weapon and write tag to file
+    cout << "Cost in stores: ";
+    out << "    ";
+    string cost;
+    tag = "cost";
+    getline(cin,cost);
+    writeTag(tag,cost,out);
+    // Ask for speed and write tag to file
+    cout << "Speed of weapon travel: ";
+    out << "    ";
+    string speed;
+    tag = "speed";
+    getline(cin,speed);
+    writeTag(tag,speed,out);
+    // Ask for rarity and write tag to file
+    cout << "Rarity to find in stores/events (1-5): ";
+    out << "    ";
+    string rarity;
+    tag = "rarity";
+    getline(cin,rarity);
+    writeTag(tag,rarity,out);
+    // If weapon is a beam, ask for beam length and write tag to file
+    if(strcmp(weaponType.c_str(),"BEAM") == 0) {
+        cout << "Beam length: ";
+        out << "    ";
+        string length;
+        tag = "length";
+        getline(cin,length);
+        writeTag(tag,length,out);
+    }
+    /*
+    // Get name for projectile image/animation and write tag to file
+    cout << "Name for projectile image: ";
+    out << "    ";
+    string image;
+    tag = "image";
+    getline(cin,image);
+    writeTag(tag,image,out);
+    // Get path for projectile image/animation and cp it to mod directories
+    cout << "Path to projectile image/animation sheet:\n";
+    string projectilePath;
+    tag = "image";
+    getline(cin,projectilePath);
+    command = "cp \"" + projectilePath + "\" \"" + path + "/img/weapons/" + image + "\"";
+    system(command.c_str());
+    // Open launch sounds tag
+    writeOpenTag("launchSounds",out);
+    // Get # of launch sounds and create array
+    cout << "How many launch sounds? (please limit yourself to 2 or three)\n ";
+    int launchSoundsNum;
+    cin >> launchSoundsNum;
+    cin.get();
+    string *launchSounds;
+    launchSounds = new string[launchSoundsNum];
+    // Get names for launch sounds and write tags
+    tag = "sound";
+    for(int i = 0; i < launchSoundsNum; i++) {
+        cout << "Name of sound " << (i+1) << ": ";
+        getline(cin,launchSounds[i]);
+        out << "        ";
+        writeTag(tag,launchSounds[i],out);
+    }
+    // Close launch sounds tag
+    writeCloseTag("launchSounds",out);
+    */
     
     // Code that still needs writing
     
