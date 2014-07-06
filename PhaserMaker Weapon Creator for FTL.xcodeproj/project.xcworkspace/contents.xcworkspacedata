@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:FTL Weapon Creation Tool.xcodeproj">
+      location = "self:PhaserMaker Weapon Creator for FTL.xcodeproj">
    </FileRef>
 </Workspace>

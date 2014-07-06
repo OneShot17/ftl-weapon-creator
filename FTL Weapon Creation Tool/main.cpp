@@ -1,6 +1,6 @@
 //
 //  main.cpp
-//  FTL Weapon Creator Tool
+//  PhaserMaker Weapon Creator for FTL
 //
 //  Created by Stephen Brimhall on 7/5/14.
 //  Copyright (c) 2014 Belman Industries. All rights reserved.
@@ -47,6 +47,7 @@ int main(int argc, const char * argv[]) {
     command = "mkdir \"" + path + "/audio/waves/weapons\"";
     system(command.c_str());
     command = "mkdir \"" + path + "/img/weapons\"";
+    system(command.c_str());
     
     // Get the weapon name
     cout << "Weapon name: ";
@@ -195,7 +196,7 @@ int main(int argc, const char * argv[]) {
         getline(cin,length);
         writeTag(tag,length,out);
     }
-    /*
+    
     // Get name for projectile image/animation and write tag to file
     cout << "Name for projectile image: ";
     out << "    ";
@@ -219,17 +220,31 @@ int main(int argc, const char * argv[]) {
     cin.get();
     string *launchSounds;
     launchSounds = new string[launchSoundsNum];
-    // Get names for launch sounds and write tags
+    // Get names for launch sounds and write tags, also copy files
     tag = "sound";
     for(int i = 0; i < launchSoundsNum; i++) {
         cout << "Name of sound " << (i+1) << ": ";
         getline(cin,launchSounds[i]);
         out << "        ";
         writeTag(tag,launchSounds[i],out);
+        cout << "Path to sound file: ";
+        string path2File;
+        getline(cin,path2File);
+        command = "cp \"" + path2File + "\" \"" + path + "/img/weapons/" + launchSounds[i] + "\"";
+        system(command.c_str());
     }
     // Close launch sounds tag
     writeCloseTag("launchSounds",out);
-    */
+    // Open explosion sounds tag
+    writeOpenTag("hitShipSounds",out);
+    // Get # of explosion sounds and create array
+    cout << "How many explosions? (please limit yourself to 2 or three)\n";
+    int explosionSoundsNum;
+    cin >> explosionSoundsNum;
+    cin.get();
+    string *explosionSounds;
+    explosionSounds = new string[explosionSoundsNum];
+    // Get names for launch sounds and write tags
     
     // Code that still needs writing
     

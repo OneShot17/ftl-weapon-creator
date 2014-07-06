@@ -23,7 +23,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		DC1CFB8219690A4500C80527 /* FTL Weapon Creation Tool */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "FTL Weapon Creation Tool"; sourceTree = BUILT_PRODUCTS_DIR; };
+		DC1CFB8219690A4500C80527 /* PhaserMaker Weapon Creator for FTL */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "PhaserMaker Weapon Creator for FTL"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC1CFB8519690A4500C80527 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -49,7 +49,7 @@
 		DC1CFB8319690A4500C80527 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				DC1CFB8219690A4500C80527 /* FTL Weapon Creation Tool */,
+				DC1CFB8219690A4500C80527 /* PhaserMaker Weapon Creator for FTL */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -65,9 +65,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		DC1CFB8119690A4500C80527 /* FTL Weapon Creation Tool */ = {
+		DC1CFB8119690A4500C80527 /* PhaserMaker Weapon Creator for FTL */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = DC1CFB8919690A4500C80527 /* Build configuration list for PBXNativeTarget "FTL Weapon Creation Tool" */;
+			buildConfigurationList = DC1CFB8919690A4500C80527 /* Build configuration list for PBXNativeTarget "PhaserMaker Weapon Creator for FTL" */;
 			buildPhases = (
 				DC1CFB7E19690A4500C80527 /* Sources */,
 				DC1CFB7F19690A4500C80527 /* Frameworks */,
@@ -77,9 +77,9 @@
 			);
 			dependencies = (
 			);
-			name = "FTL Weapon Creation Tool";
+			name = "PhaserMaker Weapon Creator for FTL";
 			productName = "FTL Weapon Creation Tool";
-			productReference = DC1CFB8219690A4500C80527 /* FTL Weapon Creation Tool */;
+			productReference = DC1CFB8219690A4500C80527 /* PhaserMaker Weapon Creator for FTL */;
 			productType = "com.apple.product-type.tool";
 		};
 /* End PBXNativeTarget section */
@@ -96,7 +96,7 @@
 					};
 				};
 			};
-			buildConfigurationList = DC1CFB7D19690A4500C80527 /* Build configuration list for PBXProject "FTL Weapon Creation Tool" */;
+			buildConfigurationList = DC1CFB7D19690A4500C80527 /* Build configuration list for PBXProject "PhaserMaker Weapon Creator for FTL" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -108,7 +108,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				DC1CFB8119690A4500C80527 /* FTL Weapon Creation Tool */,
+				DC1CFB8119690A4500C80527 /* PhaserMaker Weapon Creator for FTL */,
 			);
 		};
 /* End PBXProject section */
@@ -202,7 +202,7 @@
 		DC1CFB8A19690A4500C80527 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "PhaserMaker Weapon Creator for FTL";
 				SDKROOT = macosx;
 			};
 			name = Debug;
@@ -210,7 +210,7 @@
 		DC1CFB8B19690A4500C80527 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "PhaserMaker Weapon Creator for FTL";
 				SDKROOT = macosx;
 			};
 			name = Release;
@@ -218,7 +218,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		DC1CFB7D19690A4500C80527 /* Build configuration list for PBXProject "FTL Weapon Creation Tool" */ = {
+		DC1CFB7D19690A4500C80527 /* Build configuration list for PBXProject "PhaserMaker Weapon Creator for FTL" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				DC1CFB8719690A4500C80527 /* Debug */,
@@ -227,7 +227,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		DC1CFB8919690A4500C80527 /* Build configuration list for PBXNativeTarget "FTL Weapon Creation Tool" */ = {
+		DC1CFB8919690A4500C80527 /* Build configuration list for PBXNativeTarget "PhaserMaker Weapon Creator for FTL" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				DC1CFB8A19690A4500C80527 /* Debug */,
