@@ -42,6 +42,8 @@ int main(int argc, const char * argv[]) {
     system(command.c_str());
     command = "mkdir \"" + path + "/audio\"";
     system(command.c_str());
+    command = "mkdir \"" + path + "/audio/waves\"";
+    system(command.c_str());
     command = "mkdir \"" + path + "/audio/waves/weapons\"";
     system(command.c_str());
     command = "mkdir \"" + path + "/img/weapons\"";
@@ -51,13 +53,15 @@ int main(int argc, const char * argv[]) {
     getline(cin,weaponName);
     // Set weapon-blueprint name based on weapon name (so it's easy to find in ship editors xD)
     char blueprintName[weaponName.length()];
-    for(int i = 0; weaponName.c_str()[i] != '\0'; i++) {
+    int i;
+    for(i = 0; weaponName.c_str()[i] != '\0'; i++) {
         if(weaponName.c_str()[i] == ' ') {
             blueprintName[i] = '_';
             continue;
         }
         blueprintName[i] = weaponName.c_str()[i];
     }
+    blueprintName[i] = '\0';
     
     // Set short name of weapon
     cout << "Short name: ";
