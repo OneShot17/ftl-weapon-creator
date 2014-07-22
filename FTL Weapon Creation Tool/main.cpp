@@ -96,6 +96,14 @@ int main(int argc, const char * argv[]) {
     system(command.c_str());
     ofstream out(newpath,ios::app);
     
+    // open animations.xml.append in append mode, creating it if it doesn't exist
+    newpath = pwd + "/animations.xml.append";
+    ofstream anims(newpath,ios::app);
+    
+    // open sounds.xml.append in append mode, creating it if it doesn't exist
+    newpath = pwd + "/sounds.xml.append";
+    ofstream sounds(newpath,ios::app);
+    
     /////////////////////////////
     // BEGIN BLUEPRINT WRITING //
     /////////////////////////////
@@ -203,7 +211,32 @@ int main(int argc, const char * argv[]) {
     string image;
     tag = "image";
     getline(cin,image);
+    while (image.find_first_of(' ') != image.npos) {
+        image[image.find_first_of(' ')] = '-';
+    }
     writeTag(tag,image,out);
+    // Then get data for projectile animation frames and write to animations
+    cout << "Image height: ";
+    int h;
+    cin >> h;
+    cin.get();
+    cout << "Image width: ";
+    int w;
+    cin >> w;
+    cin.get();
+    cout << "Frame height: ";
+    int fw;
+    cin >> fw;
+    cin.get();
+    cout << "Frame width: ";
+    int fh;
+    cin >> fh;
+    cin.get();
+    tag = "animSheet name=\"" + image + "\" w=\"" + to_string(w) + "\" h=\"" + to_string(h);
+    tag += "\" fw=\"" + to_string(fw) + "\" fh=\"" + to_string(fh) + "\"";
+    string val = "weapons/" + image;
+    writeOpenTag(tag,anims);
+    anims << "\b" << val;
     // Get path for projectile image/animation and cp it to mod directories
     cout << "Path to projectile image/animation sheet:\n";
     string projectilePath;
